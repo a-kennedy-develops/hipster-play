@@ -67,7 +67,7 @@ export const MetricsPage = () => {
           Test progress bar
         </Button>
       </p>
-      <Progress value={testPro} includePercentage className="tw-w-7/12" />
+      <Progress value={testPro} includePercentage className="!tw-w-7/12" />
       <hr />
 
       <Row>
