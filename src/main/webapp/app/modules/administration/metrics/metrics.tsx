@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import {
   CacheMetrics,
@@ -16,12 +16,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { APP_TIMESTAMP_FORMAT, APP_TWO_DIGITS_AFTER_POINT_NUMBER_FORMAT, APP_WHOLE_NUMBER_FORMAT } from 'app/config/constants';
 import { getSystemMetrics, getSystemThreadDump } from '../administration.reducer';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { Progress } from '../../../@/components/ui/progress/progress';
 
 export const MetricsPage = () => {
   const dispatch = useAppDispatch();
   const metrics = useAppSelector(state => state.administration.metrics);
   const isFetching = useAppSelector(state => state.administration.loading);
   const threadDump = useAppSelector(state => state.administration.threadDump);
+
+  const [testPro, setTestPro] = useState(0);
 
   useEffect(() => {
     dispatch(getSystemMetrics());
@@ -40,7 +43,7 @@ export const MetricsPage = () => {
       <h2 id="metrics-page-heading" data-cy="metricsPageHeading">
         <Translate contentKey="metrics.title">Application Metrics</Translate>
       </h2>
-      <p>
+      <p className="tw-mb-4">
         <Button onClick={getMetrics} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
           &nbsp;
@@ -49,6 +52,22 @@ export const MetricsPage = () => {
           </Translate>
         </Button>
       </p>
+      <p className="tw-mb-4">
+        <Button
+          onClick={() => {
+            if (testPro !== 100) {
+              setTestPro(testPro + 5);
+            } else {
+              setTestPro(0);
+            }
+          }}
+          color="btn btn-primary"
+          disabled={isFetching}
+        >
+          Test progress bar
+        </Button>
+      </p>
+      <Progress value={testPro} includePercentage className="tw-w-7/12" />
       <hr />
 
       <Row>
