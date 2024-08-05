@@ -38,7 +38,7 @@ export const App = () => {
   const paddingTop = '60px';
   return (
     <BrowserRouter basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
+      <div className="box-border tw-min-h-screen tw-flex tw-flex-col" style={{ paddingTop }}>
         <ToastContainer position="top-left" className="toastify-container" toastClassName="toastify-toast" />
         <ErrorBoundary>
           <Header
@@ -50,14 +50,17 @@ export const App = () => {
             isOpenAPIEnabled={isOpenAPIEnabled}
           />
         </ErrorBoundary>
-        <div className="container-fluid view-container" id="app-view-container">
-          <Card className="jh-card">
+        <div
+          className="tw-flex tw-flex-col tw-flex-grow tw-min-h-full tw-h-full tw-w-full tw-overflow-y-auto tw-overflow-x-hidden tw-p-4"
+          id="app-view-container"
+        >
+          <Card className="jh-card tw-p-4">
             <ErrorBoundary>
               <AppRoutes />
             </ErrorBoundary>
           </Card>
-          <Footer />
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );
