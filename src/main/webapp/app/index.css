@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 216 0% 95%;
+    --foreground: 216 0% 10%;
+    --card: 216 0% 93%;
+    --card-foreground: 216 0% 15%;
+    --popover: 216 0% 95%;
+    --popover-foreground: 216 95% 10%;
+    --primary: 216 61.8% 29.8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 10% 90%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 178 10% 93%;
+    --muted-foreground: 216 0% 40%;
+    --accent: 178 10% 90%;
+    --accent-foreground: 216 0% 15%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 216 0% 93%;
+    --border: 216 20% 82%;
+    --input: 216 20% 50%;
+    --ring: 216 61.8% 29.8%;
+    --radius: 0.3rem;
+  }
+  .dark {
+    --background: 216 10% 10%;
+    --foreground: 216 0% 93%;
+    --card: 216 0% 10%;
+    --card-foreground: 216 0% 93%;
+    --popover: 216 10% 5%;
+    --popover-foreground: 216 0% 93%;
+    --primary: 216 61.8% 29.8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 10% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 178 10% 25%;
+    --muted-foreground: 216 0% 65%;
+    --accent: 178 10% 25%;
+    --accent-foreground: 216 0% 93%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 216 0% 93%;
+    --border: 216 20% 50%;
+    --input: 216 20% 50%;
+    --ring: 216 61.8% 29.8%;
+    --radius: 0.3rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply tw-border-border;
+  }
+  body {
+    @apply tw-bg-background tw-text-foreground;
+  }
+}
